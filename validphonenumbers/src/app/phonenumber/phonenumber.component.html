@@ -1,0 +1,35 @@
+
+<div class="container">
+<h1>Generate Valid Phone Numbers</h1> 
+<div class="buttonHolder">
+    <div class="row col-8">
+        <div class="col-4">
+            <input type="text" id="phoneNbr" name="phoneNbr" ng-model="phoneNbr" maxlength="10" oninput="this.value=this.value.replace(/[^\d]/,'')">
+        </div>
+        <br>
+        <div class="col-2">
+            <button class="btn btn-primary"  (click) = "getList()">Validate</button>
+        </div>      
+</div>
+<div class="row"> 
+    <h2>{{errorMsg}}</h2>
+    <div class="pagination">
+    
+    Count {{ numberSequence.length }}
+    <br><br>
+    <div *ngFor="let item of numberSequence | paginate: { itemsPerPage: 5, currentPage: p }">
+        <label>{{item}}</label>
+        <br>
+        <br>
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    
+</div>
+   
+</div>
+    <!-- pagination : <button (click)="pagination(1)">1</button><button (click)="pagination(2)">2</button> -->
+
+
+<br>
+</div>
+</div>
